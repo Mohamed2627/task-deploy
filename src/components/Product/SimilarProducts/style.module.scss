@@ -1,0 +1,31 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+.container {
+  @include horizontalSpace;
+  // @include marginX($)
+  @include marginY(30px);
+
+  .title {
+    color: $primaryColor;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .desc {
+    color: $textGrey;
+    font-size: 14px;
+  }
+
+  .cardsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    @include paddingY(20px);
+    @include paddingX(10px);
+    @include horizontalScrollBar;
+  }
+}

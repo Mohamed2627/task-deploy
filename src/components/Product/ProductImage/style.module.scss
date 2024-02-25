@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    left: 5%;
+    top: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .rotateImg {
+      width: 30px;
+      height: 30px;
+      transition: all .8s ease;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

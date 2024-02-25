@@ -1,0 +1,21 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+.container {
+  @include centerRow;
+  @include paddingY(2px);
+
+  .rate {
+    font-size: $smallFont;
+    font-weight: 600;
+    color: black;
+    margin-left: 12px;
+  }
+
+  .ratingsNumber {
+    font-size: $smallFont;
+    color: $textGrey;
+    margin-left: 15px;
+    font-weight: 500;
+  }
+}

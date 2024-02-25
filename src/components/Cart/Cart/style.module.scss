@@ -1,0 +1,70 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+.modalContainer {
+  justify-self: flex-end;
+  max-height: 100vh;
+  max-width: 100vw;
+  border: none;
+  outline: none;
+  height: 100vh;
+
+  @include breakpoints($xs) {
+    width: 100vw;
+  }
+
+  @include breakpoints($sm) {
+    width: 450px;
+  }
+
+  .modalContent {
+    width: 100%;
+    @include paddingY(10px);
+    @include paddingX(30px);
+    @include column;
+
+    .closeIcon {
+      @include row;
+      align-self: flex-end;
+      justify-self: center;
+      cursor: pointer;
+    }
+
+    .cartWord {
+      color: $primaryColor;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .summaryWord {
+      color: black;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .itemsContainer {
+      @include column;
+      overflow-y: auto;
+      height: auto;
+      max-height: 78vh;
+      @include paddingX(4px)
+    }
+
+    .totalPrice {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .btnsContainer {
+      @include row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &::backdrop {
+    background-color: rgba(97, 99, 99, 0.478);
+  }
+}

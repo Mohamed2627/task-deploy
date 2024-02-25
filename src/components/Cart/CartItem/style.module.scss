@@ -1,0 +1,44 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+.container {
+  border: 1px solid rgb(243, 228, 228);
+  padding: 5px;
+  @include centerRow;
+  height: 120px;
+  width: 100%;
+  border-radius: 6px;
+
+  @include marginY(8px);
+
+  .itemImage {
+    width: 35%;
+    height: 100%;
+    border-radius: 6px;
+  }
+
+  .itemDetails {
+    @include column;
+    justify-content: space-between;
+    width: 65%;
+    height: 100%;
+    @include paddingX(15px);
+
+    .itemDescription {
+      font-size: $smallFont;
+      font-weight: 600;
+    }
+
+    .quantity {
+      font-size: $smallFont;
+      color: black;
+      font-weight: 600;
+    }
+
+    .wrapper {
+      @include row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+.itemContainer {
+  @include row;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  .badge {
+    position: absolute;
+    right: 28px;
+    top: 12px;
+    @include centerRow;
+    @include circle(16px);
+    background-color: $secondaryColor;
+    padding: 5px;
+    font-size: $smallFont;
+  }
+
+  .itemText {
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    margin-left: 5px;
+  }
+}

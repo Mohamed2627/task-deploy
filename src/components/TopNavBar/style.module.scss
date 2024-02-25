@@ -1,0 +1,67 @@
+@use './../../styles/mixins.scss' as *;
+@use './../../styles/variables.scss' as *;
+
+
+.container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  @include horizontalSpace;
+  background-color: $secondaryColor;
+  @include row;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  z-index: 20;
+
+  .logoContainer {
+    @include paddingY(5px);
+    @include centerRow;
+    position: relative;
+
+    .logo {
+      margin-left: 8px;
+      user-select: none
+    }
+  }
+
+  .offersWrapper {
+    @include centerRow;
+
+    @include breakpoints($xs) {
+      display: none;
+    }
+
+    @include breakpoints($xl) {
+      display: inline-block;
+    }
+
+    .offerText {
+      font-size: 14px;
+
+      .offerLink {
+        color: black;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .rightSideWrapper {
+    @include breakpoints($xs) {
+      display: none;
+    }
+
+    @include breakpoints($md) {
+      display: flex;
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    justify-self: flex-end;
+
+  }
+}

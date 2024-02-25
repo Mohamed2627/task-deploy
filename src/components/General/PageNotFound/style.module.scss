@@ -1,0 +1,18 @@
+@use './../../../styles/mixins.scss' as *;
+
+
+.container {
+    @include marginTop;
+    @include horizontalSpace;
+    min-height: 400px;
+    @include centerColumn;
+
+    h1 {
+        font-size: 80px
+    }
+
+    .text {
+        @include marginY(20px);
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,24 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables' as *;
+
+
+.socialContainer {
+    height: 45px;
+    width: 115px;
+    cursor: pointer;
+    @include centerRow;
+    margin-left: 15px;
+
+    .icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 6px;
+    }
+
+    .iconName {
+        font-size: 16px;
+        color: $textWhite;
+        font-weight: 400;
+        line-height: 30px;
+    }
+}

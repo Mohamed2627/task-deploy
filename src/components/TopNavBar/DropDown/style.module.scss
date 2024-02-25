@@ -1,0 +1,25 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+
+.container {
+  position: absolute;
+  @include centerColumn;
+  z-index: 40;
+  top: 5vh;
+  left: 0;
+
+  .navItem {
+    padding: 10px;
+    background-color: black;
+    color: #FFF;
+    width: 150px;
+    cursor: pointer;
+    border-bottom: 1px solid #FFF;
+
+    &:hover {
+      background-color: rgb(108, 103, 103);
+    }
+  }
+
+}

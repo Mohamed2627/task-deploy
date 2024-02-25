@@ -1,0 +1,95 @@
+@use './../../styles/mixins.scss' as *;
+@use './../../styles/variables.scss' as *;
+
+
+@keyframes move {}
+
+
+.container {
+  position: fixed;
+  top: 5vh;
+  left: 0px;
+  right: 0px;
+  @include horizontalSpace;
+
+  @include paddingY(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  background-color: #FFF;
+
+  @include breakpoints($xs) {
+    flex-direction: column;
+    height: 13vh;
+  }
+
+  @include breakpoints($md) {
+    height: 13vh;
+  }
+
+  @include breakpoints($lg) {
+    height: 8vh;
+    flex-direction: row;
+  }
+
+  .searchContainer {
+    position: relative;
+    @include row;
+    align-items: center;
+
+    .searchIcon {
+      position: absolute;
+      left: 5px;
+    }
+
+    .searchInput {
+      height: 40px;
+      background-color: #FFF;
+      border-radius: 25px;
+      padding: 10px;
+      border: 1px solid rgba(235, 228, 228, 0.986);
+      padding-left: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      color: black;
+      width: clamp(250px, 30%, 400px);
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: black;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .brandLogo {
+    @include breakpoints($xs) {
+      display: none;
+    }
+
+    @include breakpoints($xl) {
+      display: inline-block;
+    }
+
+    width: 80px;
+    height: 50px;
+  }
+
+  .rightSideWrapper {
+    @include row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoints($xs) {
+      width: 100%;
+    }
+
+    @include breakpoints($lg) {
+      width: 40%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
+
+.price {
+  color: $primaryColor;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  .lE {
+    font-size: $smallFont;
+    font-weight: 500;
+  }
+}
+
+.discountContainer {
+  @include centerRow;
+
+  .originalPrice {
+    font-size: $smallFont;
+    color: $textGrey;
+    font-weight: 500;
+    text-decoration: line-through;
+    white-space: nowrap;
+  }
+
+  .discountPercentage {
+    width: 40px;
+    background-color: $secondaryColor;
+    border-radius: 4px;
+    color: black;
+    margin-left: 20px;
+    text-align: center;
+    font-size: $smallFont;
+  }
+}

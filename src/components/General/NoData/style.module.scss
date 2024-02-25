@@ -1,0 +1,12 @@
+@use './../../../styles/mixins.scss' as *;
+
+.container {
+  @include centerRow;
+  @include paddingY(20px);
+
+  .text {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(105, 101, 101);
+  }
+}

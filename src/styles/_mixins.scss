@@ -1,0 +1,113 @@
+@use './variables.scss' as *;
+
+@mixin breakpoints($point) {
+  @media only screen and (min-width: $point) {
+    @content
+  }
+
+}
+
+@mixin horizontalScrollBar {
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: blue;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(159, 157, 157);
+  }
+
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+  @content
+}
+
+@mixin row() {
+  display: flex;
+  flex-direction: row;
+  @content
+}
+
+@mixin centerRow {
+  @include row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin centerColumn {
+  @include column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin marginTop {
+  @include breakpoints($xs) {
+    margin-top: 18vh;
+  }
+
+  @include breakpoints($lg) {
+    margin-top: 0px;
+  }
+}
+
+@mixin circle($diameter) {
+  width: $diameter;
+  height: $diameter;
+  border-radius: 50%;
+}
+
+@mixin horizontalSpace {
+  @include breakpoints($xs) {
+    padding-left: $Padding_X_sm;
+    padding-right: $Padding_X_sm;
+  }
+
+  @include breakpoints($md) {
+    padding-left: $Padding_md;
+    padding-right: $Padding_md;
+  }
+
+  @include breakpoints($lg) {
+    padding-left: $Padding_X_lg;
+    padding-right: $Padding_X_lg;
+  }
+}
+
+@mixin paddingY($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin marginY($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin paddingX($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin marginX($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin pageContainer {
+  @include row;
+  align-items: center;
+  justify-content: space-between;
+  @include horizontalSpace;
+  @include marginTop;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 400px;
+  @include paddingY(20px)
+}

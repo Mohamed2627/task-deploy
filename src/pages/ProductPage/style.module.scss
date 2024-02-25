@@ -1,0 +1,16 @@
+@use './../../styles/mixins.scss' as *;
+
+
+.pathContainer {
+  @include horizontalSpace;
+  @include paddingY(10px);
+  border-bottom: 1px solid rgba(235, 228, 228, 0.986);
+  white-space: wrap;
+  width: 100%;
+  @include marginTop;
+
+  .pathItem {
+    font-size: 16px;
+    color: black;
+  }
+}

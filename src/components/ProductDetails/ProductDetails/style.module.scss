@@ -1,0 +1,158 @@
+@use './../../../styles/mixins.scss' as *;
+@use './../../../styles/variables.scss' as *;
+
+
+.container {
+  @include horizontalSpace;
+  @include paddingY(20px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+
+  @include breakpoints($xs) {
+    flex-direction: column;
+  }
+
+  @include breakpoints($md) {
+    flex-direction: row;
+  }
+
+  .imagesContainer {
+    @include breakpoints($xs) {
+      width: 100%;
+    }
+
+    @include breakpoints($md) {
+      width: 40%;
+    }
+
+    .scrollContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+
+      .scrollImages {
+        @include row;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: auto;
+        width: 100%;
+        scroll-behavior: smooth;
+        gap: 20px;
+        @include horizontalScrollBar;
+        user-select: none;
+        @include paddingY(5px);
+
+        .scrollIMg {
+          width: 100px;
+          height: 100px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .arrowIcon {
+        width: 5%;
+      }
+    }
+  }
+
+  .detailsContainer {
+
+    @include breakpoints($xs) {
+      width: 100%;
+    }
+
+    @include breakpoints($md) {
+      width: 50%;
+    }
+
+    .detailsSection {
+      border-bottom: 1px solid rgba(235, 228, 228, 0.986);
+      @include paddingY(10px);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .logo {
+        width: 50px;
+        height: 40px;
+        user-select: none;
+      }
+
+      .description {
+        font-size: $smallFont;
+        font-weight: 700;
+        color: black;
+      }
+
+      .category {
+        font-size: $smallFont;
+        font-weight: 700;
+        color: $textGrey;
+      }
+
+      .infoTitle {
+        font-size: medium;
+        font-weight: 600;
+        @include paddingY(10px);
+        color: black
+      }
+
+      .sizesContainer {
+        @include row;
+        gap: 10px;
+
+        .size {
+          @include circle(60px);
+          @include centerRow;
+          font-size: 10px;
+          color: $primaryColor;
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        .color {
+          cursor: pointer;
+          @include circle(80px);
+          object-fit: contain;
+        }
+      }
+
+      .quantityContainer {
+        @include row;
+        align-items: center;
+        justify-content: space-between;
+        width: clamp(100px, 45%, 280px);
+        border: 1px solid rgba(235, 228, 228, 0.986);
+        border-radius: 20px;
+        height: 40px;
+        background-color: whitesmoke;
+        padding: 4px;
+        position: relative;
+
+        .qauntityBtn {
+          @include circle(34px);
+          background-color: $secondaryColor;
+          cursor: pointer;
+          @include centerRow;
+        }
+
+        .qauntityNumber {
+          font-size: 15px;
+          color: $primaryColor;
+          font-weight: 600;
+        }
+      }
+
+      .cartBtns {
+        @include row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}

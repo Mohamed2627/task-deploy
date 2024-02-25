@@ -1,0 +1,241 @@
+@use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
+
+
+.footerContainer {
+  background-color: $bgColor;
+  height: auto;
+  bottom: 0;
+  @include horizontalSpace;
+
+  .upperHalf {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include breakpoints($sm) {
+      flex-direction: column;
+    }
+
+    @include breakpoints($xs) {
+      flex-direction: column;
+    }
+
+    @include breakpoints($md) {
+      flex-direction: row;
+    }
+
+    .halfContainer {
+      @include breakpoints($sm) {
+        width: 100%;
+        border-right: none;
+      }
+
+      @include breakpoints($xs) {
+        width: 100%;
+        border-right: none;
+      }
+
+      @include breakpoints($md) {
+        border-right: 1px solid grey;
+        width: 50%;
+
+        &:nth-child(2) {
+          border-right: none;
+          padding-left: 20px;
+        }
+      }
+
+      .description {
+        font-size: $smallFont;
+        @include marginY(7%);
+        line-height: 14px;
+        color: $textWhite;
+      }
+
+      .subscription {
+        @media only screen and ($md <=width <=$lg) {
+          width: 110%;
+        }
+
+        .subscriptionTitle {
+          width: 100%;
+          font-size: medium;
+          font-weight: 500;
+          color: $textWhite;
+
+        }
+
+        .formContainer {
+          width: 100%;
+          position: relative;
+          @include row;
+          align-items: center;
+
+          .textInput {
+            width: 100%;
+            padding: 18px;
+            font-size: $inputFont;
+            color: $primaryColor;
+            @include marginY(10px);
+            border-radius: 60px;
+            border: none;
+
+            &:focus {
+              outline: none;
+            }
+
+            &::placeholder {
+              color: $primaryColor;
+              font-size: $inputFont;
+            }
+          }
+
+          .submitContainer {
+            position: absolute;
+            right: 3px;
+            padding: 12px;
+            background-color: $secondaryColor;
+            border-radius: 44px;
+            @include row;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+
+            .subWord {
+              @include breakpoints($xs) {
+                display: none;
+              }
+
+              @include breakpoints($sm) {
+                display: inline-block;
+                font-size: 20px;
+              }
+
+              @include breakpoints($md) {
+                display: inline-block;
+                font-size: 15px;
+              }
+
+              @include breakpoints($lg) {
+                display: inline-block;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      .infoAndSocial {
+        @include row;
+        align-items: flex-start;
+
+        @include breakpoints($xs) {
+          @include column;
+        }
+
+        @include breakpoints($sm) {
+          @include row;
+          align-items: flex-start;
+        }
+
+        .info {
+
+          min-width: 200px;
+
+          @include breakpoints($xs) {
+            border-right: none;
+            width: 100%;
+          }
+
+          @include breakpoints($sm) {
+            border-right: 1px solid grey;
+            width: 60%;
+          }
+
+          .infoWord {
+            font-size: 16px;
+            color: $textWhite;
+            font-weight: 400;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .lowerHalf {
+    @include paddingY(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoints($sm) {
+      flex-direction: column;
+    }
+
+    @include breakpoints($xs) {
+      flex-direction: column;
+    }
+
+    @include breakpoints($md) {
+      flex-direction: row;
+    }
+
+    .divContainer {
+      @include centerRow;
+
+      min-height: 40px;
+      @include paddingY(8px);
+
+      @include breakpoints($sm) {
+
+        &:nth-child(2) {
+          border-bottom: 1px solid grey;
+        }
+      }
+
+      @include breakpoints($xs) {
+
+        &:nth-child(2) {
+          border-bottom: 1px solid grey;
+        }
+      }
+
+      @include breakpoints($md) {
+        width: 33%;
+
+        &:nth-child(1) {
+          justify-content: flex-start;
+        }
+
+        &:nth-child(3) {
+          justify-content: flex-end;
+        }
+
+        &:nth-child(2) {
+          border: none;
+        }
+      }
+
+      .payCard {
+        @include marginX(10px);
+      }
+
+      .rights {
+        font-size: $smallFont;
+        color: $textWhite;
+        font-weight: 400;
+      }
+
+      .powered {
+        font-size: $smallFont;
+        color: $textWhite;
+        font-weight: 600;
+      }
+    }
+  }
+}
