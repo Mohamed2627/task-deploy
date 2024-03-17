@@ -4,11 +4,11 @@
 
 .container {
   @include horizontalSpace;
-  @include paddingY(20px);
+  @include paddingY(40px);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 40px;
+  gap: 0px;
 
   @include breakpoints($xs) {
     flex-direction: column;
@@ -66,7 +66,7 @@
     }
 
     @include breakpoints($md) {
-      width: 50%;
+      width: 55%;
     }
 
     .detailsSection {
@@ -78,7 +78,7 @@
       }
 
       .logo {
-        width: 50px;
+        // width: 50px;
         height: 40px;
         user-select: none;
       }
@@ -92,7 +92,7 @@
       .category {
         font-size: $smallFont;
         font-weight: 700;
-        color: $textGrey;
+        color: #a7a9ac;
       }
 
       .infoTitle {
@@ -105,6 +105,7 @@
       .sizesContainer {
         @include row;
         gap: 10px;
+        flex-wrap: wrap;
 
         .size {
           @include circle(60px);
@@ -149,9 +150,13 @@
       }
 
       .cartBtns {
-        @include row;
+        @include column;
         align-items: center;
         justify-content: space-between;
+
+        @include breakpoints($sm) {
+          @include row;
+        }
       }
     }
   }

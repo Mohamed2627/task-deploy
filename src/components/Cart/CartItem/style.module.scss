@@ -5,16 +5,46 @@
   border: 1px solid rgb(243, 228, 228);
   padding: 5px;
   @include centerRow;
-  height: 120px;
   width: 100%;
   border-radius: 6px;
 
   @include marginY(8px);
 
+  @include breakpoints(0px) {
+    height: 340px;
+  }
+
+  @include breakpoints(200px) {
+    height: 320px;
+  }
+
+  @include breakpoints(225px) {
+    height: 280px;
+  }
+
+
+  @include breakpoints(300px) {
+    height: 200px;
+  }
+
+  @include breakpoints(340px) {
+    height: 145px;
+  }
+
+  @include breakpoints(445px) {
+    height: 120px;
+  }
+
   .itemImage {
     width: 35%;
     height: 100%;
     border-radius: 6px;
+
+    @include breakpoints(340px) {
+      // @include row;
+      // height: clamp(100px, 90%, 400px);
+      // height: 100%
+    }
   }
 
   .itemDetails {
@@ -36,9 +66,13 @@
     }
 
     .wrapper {
-      @include row;
+      @include column;
       align-items: center;
       justify-content: space-between;
+
+      @include breakpoints(340px) {
+        @include row;
+      }
     }
   }
 }

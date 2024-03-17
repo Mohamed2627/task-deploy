@@ -4,12 +4,14 @@
 .container {
   @include centerRow;
   @include paddingY(2px);
+  flex-wrap: wrap;
 
   .rate {
     font-size: $smallFont;
     font-weight: 600;
     color: black;
     margin-left: 12px;
+    min-width: 50px;
   }
 
   .ratingsNumber {
@@ -17,5 +19,16 @@
     color: $textGrey;
     margin-left: 15px;
     font-weight: 500;
+    min-width: 50px;
+  }
+
+  .noRate {
+    border-radius: 12px;
+    color: #575756;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 1rem;
+    padding: 1px 4px;
+    text-transform: capitalize
   }
 }

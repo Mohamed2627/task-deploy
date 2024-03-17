@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+  @include marginX(15px);
 
   .badge {
     position: absolute;
@@ -23,5 +24,13 @@
     font-weight: 700;
     color: black;
     margin-left: 5px;
+
+    @include breakpoints($xs) {
+      visibility: hidden;
+    }
+
+    @include breakpoints($sm) {
+      visibility: visible;
+    }
   }
 }

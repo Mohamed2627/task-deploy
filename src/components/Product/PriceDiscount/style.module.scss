@@ -15,6 +15,7 @@
 
 .discountContainer {
   @include centerRow;
+  flex-wrap: wrap;
 
   .originalPrice {
     font-size: $smallFont;

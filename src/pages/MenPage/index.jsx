@@ -16,6 +16,7 @@ class MenPage extends React.Component {
     getProducts().then((data) => {
       this.setState({ data })
     }).then(err => {
+      // Handling Error
       console.log(err)
     })
   }

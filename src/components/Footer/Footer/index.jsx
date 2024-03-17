@@ -28,9 +28,9 @@ const Footer = () => {
       <div className={classes.upperHalf}>
         <div className={classes.halfContainer}>
           <img loading='lazy' src={IMAGES.FOOTER.logo} className={classes.logo} alt="" />
-          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro nam velit eligendi, recusandae, possimus molestiae blanditiis </p>
-          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro nam velit eligendi, recusandae, possimus molestiae blanditiis doloribus quos expedita ut natus deserunt mollitia id inventore necessitatibus ea laborum, commodi nobis.</p>
-          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro nam velit eligendi, recusandae, possimus molestiae blanditiis </p>
+          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque odio, ratione cupiditate iste illo esse iure ipsam qui aspernatur officia doloremque eaque voluptatum aliquam nihil architecto, ipsa libero! Sed, reiciendis! </p>
+          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum explicabo adipisci dolorum at laboriosam quod. Eaque non aperiam necessitatibus quae quaerat nostrum corrupti voluptatibus dicta est et quos vero iure recusandae possimus mollitia eos expedita, praesentium illum ex? Commodi quo sunt veritatis iusto? Esse ea dolore facilis vero incidunt itaque voluptates autem magnam, alias, ex deserunt iure officiis reprehenderit nisi?</p>
+          <p className={classes.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, enim exercitationem unde veniam quibusdam deleniti nostrum quis sequi repudiandae ad voluptas impedit, nulla veritatis hic qui officiis architecto atque eos!</p>
         </div>
         <div className={classes.halfContainer}>
           <div className={classes.subscription} >

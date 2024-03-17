@@ -51,9 +51,10 @@
 
       .description {
         font-size: $smallFont;
-        @include marginY(7%);
+        @include marginY(5%);
         line-height: 14px;
         color: $textWhite;
+        margin-right: 20px;
       }
 
       .subscription {
@@ -77,12 +78,13 @@
 
           .textInput {
             width: 100%;
-            padding: 18px;
+            padding: 14px;
             font-size: $inputFont;
             color: $primaryColor;
             @include marginY(10px);
             border-radius: 60px;
             border: none;
+            font-weight: 500;
 
             &:focus {
               outline: none;
@@ -91,19 +93,21 @@
             &::placeholder {
               color: $primaryColor;
               font-size: $inputFont;
+              font-weight: 500;
             }
           }
 
           .submitContainer {
             position: absolute;
             right: 3px;
-            padding: 12px;
+            padding: 10px;
             background-color: $secondaryColor;
             border-radius: 44px;
             @include row;
             align-items: center;
             border: none;
             cursor: pointer;
+            font-weight: 600;
 
             .subWord {
               @include breakpoints($xs) {
@@ -112,17 +116,12 @@
 
               @include breakpoints($sm) {
                 display: inline-block;
-                font-size: 20px;
-              }
-
-              @include breakpoints($md) {
-                display: inline-block;
-                font-size: 15px;
+                font-size: 12px;
               }
 
               @include breakpoints($lg) {
                 display: inline-block;
-                font-size: 20px;
+                font-size: 16px;
               }
             }
           }
@@ -133,10 +132,6 @@
         @include row;
         align-items: flex-start;
 
-        @include breakpoints($xs) {
-          @include column;
-        }
-
         @include breakpoints($sm) {
           @include row;
           align-items: flex-start;
@@ -144,7 +139,7 @@
 
         .info {
 
-          min-width: 200px;
+          min-width: 100px;
 
           @include breakpoints($xs) {
             border-right: none;
@@ -157,10 +152,15 @@
           }
 
           .infoWord {
-            font-size: 16px;
+            font-size: 14px;
             color: $textWhite;
             font-weight: 400;
-            line-height: 30px;
+            line-height: 35px;
+            cursor: pointer;
+
+            &:hover {
+              color: $secondaryColor
+            }
           }
         }
       }
@@ -222,7 +222,13 @@
       }
 
       .payCard {
-        @include marginX(10px);
+        @include marginX(5px);
+        width: 60px;
+
+        @include breakpoints(300px) {
+          width: auto;
+          @include marginX(10px);
+        }
       }
 
       .rights {

@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from './style.module.scss';
 import { RiMenu2Fill } from "react-icons/ri";
-import { IMAGES } from '../../assets';
 import NavItem from '../General/NavItem';
 import { LuPhoneCall } from "react-icons/lu";
 import { IoCartOutline } from "react-icons/io5";

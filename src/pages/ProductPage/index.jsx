@@ -51,7 +51,7 @@ class ProductPage extends React.Component {
           <a className={classes.pathItem} href="#">Clothing</a>/
           <a className={classes.pathItem} href="#">Tops</a>/
           <a className={classes.pathItem} href="#">Adidas</a>/
-          <span className={classes.pathItem}>Adidas Black T-Shirt</span>
+          <span className={classes.pathItem}>{"Adidas Black T-Shirt"}</span>
         </div>
         <ProductDetails productData={this.state.currentProduct} />
         <SimilarProducts data={this.state.allData} setProduct={this.setCurrentProduct} />

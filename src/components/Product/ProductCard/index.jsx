@@ -35,7 +35,7 @@ const ProductCard = ({ data, onClick = () => { } }) => {
         <RateComponent rate={data?.rate} />
         <div
           className={classes.footer}
-          style={{ justifyContent: false ? 'space-between' : 'center' }}
+          style={{ justifyContent: data?.deliveryTime ? 'space-between' : 'center' }}
         >
           {data?.deliveryTime ? (
             <>

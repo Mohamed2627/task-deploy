@@ -58,9 +58,13 @@
     }
 
     .btnsContainer {
-      @include row;
+      @include column;
       align-items: center;
       justify-content: space-between;
+
+      @include breakpoints(440px) {
+        @include row;
+      }
     }
   }
 

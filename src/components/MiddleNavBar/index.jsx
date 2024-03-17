@@ -2,15 +2,13 @@ import React from 'react'
 import classes from './style.module.scss';
 import { IoSearch } from "react-icons/io5";
 import { IMAGES } from '../../assets';
-import { FaShoppingCart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { MdPersonOutline } from "react-icons/md";
-import { ButtonComponent, NavItem } from '../General';
-import { IoClose } from "react-icons/io5";
-import CartItem from '../Cart/CartItem';
 import Cart from '../Cart/Cart';
 import { Context } from '../../context/ContextProvider';
 import { getCartProducts } from '../../services/cartService';
+import { NavItem } from '../General';
+
 
 
 class MiddleNavBar extends React.Component {
@@ -69,7 +67,7 @@ class MiddleNavBar extends React.Component {
         <img loading='lazy' className={classes.brandLogo} src={IMAGES.PRODUCT.adidas} alt="photo" />
         <div className={classes.rightSideWrapper}>
           <NavItem
-            icon={<FaShoppingCart size={25} />}
+            icon={<img src={IMAGES.NavBar.cartIcon} />}
             text={'Cart'}
             badge={count}
             containerStyle={{

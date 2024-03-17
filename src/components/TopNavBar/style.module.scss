@@ -22,7 +22,8 @@
 
     .logo {
       margin-left: 8px;
-      user-select: none
+      user-select: none;
+      color: #3c3c3b
     }
   }
 
@@ -32,6 +33,9 @@
     @include breakpoints($xs) {
       display: none;
     }
+
+    min-width: 450px;
+    margin-left: 100px;
 
     @include breakpoints($xl) {
       display: inline-block;

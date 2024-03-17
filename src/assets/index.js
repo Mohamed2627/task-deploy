@@ -1,18 +1,19 @@
-import faceBook from './../assets/footer/facebook@2x.png'
-import Logo from './../assets/footer/brand-logo-yellow.svg'
-import Send from './../assets/footer/send.svg'
-import Visa from './../assets/footer/visa.png'
-import MasterCard from './../assets/footer/matercard.png'
-import Cash from './../assets/footer/cash.png'
-import NasNav from './../assets/footer/nas_nav.svg'
-import Instagram from './../assets/footer/instagram@2x.png'
-import LinkedIN from './../assets/footer/linkedin@2x.png'
-import YouTube from './../assets/footer/youtube.png'
-import Twitter from './../assets/footer/twitter.png'
-import rotate360 from './../assets/Product/360-icon-png-8.jpg'
-import ProductImage from './../assets/Product/productImage.jpg'
-import Adidas from './../assets/Product/adidas.png'
-import RedProduct from './../assets/Product/redProduct.jpg'
+import faceBook from './footer/facebook@2x.png'
+import Logo from './footer/brand-logo-yellow.svg'
+import Send from './footer/send.svg'
+import Visa from './footer/visa.png'
+import MasterCard from './footer/matercard.png'
+import Cash from './footer/cash.png'
+import NasNav from './footer/nas_nav.svg'
+import Instagram from './footer/instagram@2x.png'
+import LinkedIN from './footer/linkedin@2x.png'
+import YouTube from './footer/youtube.png'
+import Twitter from './footer/twitter.png'
+import rotate360 from './Product/360.svg'
+import ProductImage from './Product/productImage.jpg'
+import Adidas from './Product/adidas.png'
+import RedProduct from './Product/redProduct.jpg'
+import CartIcon from './NavBar/CartIcon.svg'
 
 
 export const IMAGES = {
@@ -34,5 +35,8 @@ export const IMAGES = {
         product: ProductImage,
         adidas: Adidas,
         redProduct: RedProduct
+    },
+    NavBar: {
+        cartIcon: CartIcon
     }
 }

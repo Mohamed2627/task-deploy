@@ -2,9 +2,6 @@
 @use './../../styles/variables.scss' as *;
 
 
-@keyframes move {}
-
-
 .container {
   position: fixed;
   top: 5vh;
@@ -21,11 +18,12 @@
 
   @include breakpoints($xs) {
     flex-direction: column;
-    height: 13vh;
+    height: 14vh;
   }
 
   @include breakpoints($md) {
-    height: 13vh;
+    height: 14vh;
+    flex-direction: row;
   }
 
   @include breakpoints($lg) {
@@ -53,7 +51,7 @@
       font-size: 14px;
       font-weight: 500;
       color: black;
-      width: clamp(250px, 30%, 400px);
+      width: clamp(200px, 30%, 400px);
 
       &:focus {
         outline: none;
@@ -88,7 +86,11 @@
       width: 100%;
     }
 
-    @include breakpoints($lg) {
+    @include breakpoints($sm) {
+      width: 100%;
+    }
+
+    @include breakpoints($md) {
       width: 40%;
     }
   }

@@ -138,7 +138,7 @@ class ProductDetails extends React.Component {
                 has3D={productData?.has360}
                 imgStyle={{
                   width: '100%',
-                  height: 500,
+                  height: 'auto',
                   borderRadius: 10,
                   minHeight: 400
                 }}

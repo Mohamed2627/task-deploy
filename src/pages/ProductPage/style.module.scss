@@ -8,9 +8,11 @@
   white-space: wrap;
   width: 100%;
   @include marginTop;
+  word-wrap: break-word;
 
   .pathItem {
-    font-size: 16px;
+    font-size: 14px;
     color: black;
+    font-weight: bold;
   }
 }

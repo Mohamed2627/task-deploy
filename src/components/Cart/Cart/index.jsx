@@ -97,7 +97,8 @@ class Cart extends React.Component {
                   style={{
                     backgroundColor: '#542e90',
                     fontSize: 12,
-                    height: 35
+                    height: 35,
+                    minWidth: 150
                   }}
                 />
               </div>
