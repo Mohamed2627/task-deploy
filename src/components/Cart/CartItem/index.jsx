@@ -5,7 +5,8 @@ import { PriceDiscount } from '../../Product';
 import { ButtonComponent } from '../../General';
 
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, removeProduct }) => {
+
   return (
     <div className={classes.container}>
       <img loading='lazy' className={classes.itemImage} src={data?.img} alt="photo" />
@@ -21,6 +22,7 @@ const CartItem = ({ data }) => {
           />
           <ButtonComponent
             text={'Remove'}
+            onClick={() => removeProduct(data.id, data?.quantity)}
             style={{
               height: 25,
               width: 90,

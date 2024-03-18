@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { LoadingComponet, PageContainer, PageNotFound } from './components';
 import ContextProvider from './context/ContextProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MenPage = React.lazy(() => import('./pages/MenPage'))
 const WomenPage = React.lazy(() => import('./pages/WomenPage'))
@@ -67,9 +69,24 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <ContextProvider>
-      <RouterProvider router={router} />
-    </ContextProvider>
+    <>
+      <ContextProvider>
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+        <RouterProvider router={router} />
+
+      </ContextProvider>
+    </>
   )
 }
 

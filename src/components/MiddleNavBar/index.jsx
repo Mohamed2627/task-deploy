@@ -6,7 +6,6 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdPersonOutline } from "react-icons/md";
 import Cart from '../Cart/Cart';
 import { Context } from '../../context/ContextProvider';
-import { getCartProducts } from '../../services/cartService';
 import { NavItem } from '../General';
 
 
@@ -17,43 +16,12 @@ class MiddleNavBar extends React.Component {
 
   constructor() {
     super()
-    this.state = {
-      cartData: null,
-      totalPrice: 0
-    }
   }
 
-  body = null;
-  dialog = null;
+  handleOpenModal = () => { }
 
-  componentDidMount() {
-    this.body = document.querySelector('body');
-    this.dialog = document.getElementById('dialog');
-  }
-
-  getCartData = () => {
-    getCartProducts().then((data) => {
-      const totalPrice = data.reduce((total, current) => {
-        if (current.discount) {
-          let afterDiscount = current.price - (current.price * (current.discount / 100));
-          let allQuantity = afterDiscount * current.quantity
-          return total + allQuantity
-        } else {
-          let allQuantity = current.price * current.quantity
-          return total + allQuantity
-        }
-      }, 0)
-      this.setState({ totalPrice });
-      this.setState({ cartData: data });
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
-  openModal = () => {
-    this.body.style.overflow = 'hidden';
-    this.getCartData()
-    this.dialog?.showModal();
+  setEventFun = (funRef) => {
+    this.handleOpenModal = funRef
   }
 
   render() {
@@ -74,7 +42,7 @@ class MiddleNavBar extends React.Component {
               paddingTop: 20,
               paddingBottom: 20
             }}
-            onClick={this.openModal}
+            onClick={this.handleOpenModal}
           />
           <NavItem
             icon={<FaRegHeart size={25} />}
@@ -85,7 +53,9 @@ class MiddleNavBar extends React.Component {
             text={'Login'}
           />
         </div>
-        <Cart cartData={this.state.cartData} totalPrice={this.state.totalPrice} />
+        <Cart
+          setEventFun={this.setEventFun}
+        />
       </div>
     )
   }

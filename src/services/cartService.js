@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const addProductToCart = (product, quantity) => {
   let itemObj = {
     id: product.id,
@@ -19,13 +21,45 @@ export const addProductToCart = (product, quantity) => {
       return item
     });
     if (isFoundItem) {
-      localStorage.setItem('cart', JSON.stringify(parsedOldItems))
+      localStorage.setItem('cart', JSON.stringify(parsedOldItems));
+      toast.info('The product is added before, quantity was updated', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
     } else {
       let newItems = [...parsedOldItems, itemObj];
       localStorage.setItem('cart', JSON.stringify(newItems))
+      toast.success('Product added to Cart successfully', {
+        position: "top-center",
+        pauseOnFocusLoss: false,
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
     }
   } else {
     localStorage.setItem('cart', JSON.stringify([{ ...itemObj }]))
+    toast.success('Product added to Cart successfully', {
+      position: "top-center",
+      pauseOnFocusLoss: false,
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
   }
 }
 

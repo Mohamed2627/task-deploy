@@ -15,7 +15,13 @@ const SimilarProducts = ({ data, setProduct }) => {
         ) : (
           <>
             {data.map((product) => (
-              <ProductCard key={product.id} data={product} onClick={() => setProduct(product)} />
+              <ProductCard key={product.id} data={product} onClick={() => {
+                setProduct(product);
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }} />
             ))}
           </>
         )}

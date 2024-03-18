@@ -3,9 +3,11 @@ import { IoClose } from "react-icons/io5";
 import classes from './style.module.scss';
 import CartItem from '../CartItem';
 import { ButtonComponent, LoadingComponet, NoData } from '../../General';
-
+import { getCartProducts } from '../../../services';
+import { Context } from '../../../context/ContextProvider';
 
 class Cart extends React.Component {
+  static contextType = Context
 
   constructor() {
     super()
@@ -37,11 +39,39 @@ class Cart extends React.Component {
     this.dialog.addEventListener("close", e => {
       this.body.style.overflow = 'auto';
     })
+
+    this.props.setEventFun(this.openModal)
   }
 
   componentWillUnmount() {
     this.dialog.removeEventListener('click', () => { })
     this.dialog.removeEventListener('close', () => { })
+  }
+
+  // Fun----------------------------------
+  calculateTotalPrice = (data) => {
+    const totalPrice = data.reduce((total, current) => {
+      if (current.discount) {
+        let afterDiscount = current.price - (current.price * (current.discount / 100));
+        let allQuantity = afterDiscount * current.quantity
+        return total + allQuantity
+      } else {
+        let allQuantity = current.price * current.quantity
+        return total + allQuantity
+      }
+    }, 0)
+
+    return totalPrice
+  }
+
+  getCartData = () => {
+    getCartProducts().then((data) => {
+      const totalPrice = this.calculateTotalPrice(data);
+      this.setState({ totalPrice });
+      this.setState({ cartData: [...data] });
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   closeModal = () => {
@@ -51,9 +81,24 @@ class Cart extends React.Component {
 
   formatPrice = (price) => (price)?.toLocaleString('en-US');
 
+  openModal = () => {
+    this.body.style.overflow = 'hidden';
+    this.getCartData();
+    this.dialog?.showModal();
+  }
+
+  removeProduct = (productId, quantity) => {
+    let newCartData = this.state.cartData?.filter((item) => item.id !== productId);
+    const newPrice = this.calculateTotalPrice(newCartData)
+    this.setState({ cartData: [...newCartData] })
+    this.setState({ totalPrice: newPrice })
+    localStorage.setItem('cart', JSON.stringify(newCartData));
+    const { count, setCount } = this.context
+    setCount(count - quantity);
+  }
+
 
   render() {
-    const { cartData, totalPrice } = this.props
     return (
       <dialog
         id='dialog'
@@ -67,21 +112,21 @@ class Cart extends React.Component {
           />
           <h2 className={classes.cartWord}>My Cart</h2>
           <p className={classes.summaryWord}>Cart Summary</p>
-          {!cartData ? (
+          {!this.state.cartData ? (
             <LoadingComponet style={{
               width: 100,
               height: 100
             }} />
-          ) : cartData?.length == 0 ? (
+          ) : this.state.cartData?.length == 0 ? (
             <NoData text={'Your Cart is Empty'} />
           ) : (
             <>
               <div className={classes.itemsContainer}>
-                {cartData?.map((item) => (
-                  <CartItem key={item.id} data={item} />
+                {this.state.cartData?.map((item) => (
+                  <CartItem key={item.id} data={item} removeProduct={this.removeProduct} />
                 ))}
               </div>
-              <p className={classes.totalPrice}>Total: {this.formatPrice(totalPrice)} LE</p>
+              <p className={classes.totalPrice}>Total: {this.formatPrice(this.state.totalPrice)} LE</p>
               <div className={classes.btnsContainer}>
                 <ButtonComponent
                   text={'Review Cart'}
